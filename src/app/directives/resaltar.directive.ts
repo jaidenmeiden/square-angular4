@@ -1,5 +1,5 @@
 import {Directive, OnInit, ElementRef, Renderer2, Input} from "@angular/core";//Se inyectan clases necesarias
-//Se incluye a traves de 'Directive' el selector de la directiva personalizada
+//Se incluye a traves de 'Directive' el selector de la directiva personalizada y va a ser una directiva de atributo
 @Directive({
     selector: '[resaltar]'
 })

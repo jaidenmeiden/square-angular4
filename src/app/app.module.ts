@@ -4,12 +4,15 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {FormsModule} from "@angular/forms";
 import {AgmCoreModule} from '@agm/core';
-import {ResaltarDirective} from "./directives/resaltar.directive";//Se importa la directiva personalizada para poderla usar
+//Se importan las directivas personalizadas para poderlas usar
+import {ResaltarDirective} from "./directives/resaltar.directive";
+import {ContarClicksDirective} from "./directives/contar-clicks.directive";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ResaltarDirective //Se declara la directiva personalizada
+    ResaltarDirective,
+    ContarClicksDirective
   ],
   imports: [
     BrowserModule,
