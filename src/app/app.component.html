@@ -1,23 +1,3 @@
-<div style="text-align: center">
-  <h1>String interpolation</h1>
-  <h2>{{ title }}</h2>
-  <h3>{{ a+b }}</h3>
-</div>
-<div style="text-align: center">
-  <h1>Property Binding</h1>
-  <button [disabled]="!listo">Click 1</button>
-</div>
-<div style="text-align: center">
-  <h1>Event Binding</h1>
-  <button [disabled]="!listo" (click)="hacerAlgo()">Click 2</button>
-</div>
-<div style="text-align: center">
-  <h1>Two Way Data Binding</h1>
-  <input type="text" placeholder="Tu nombre" [(ngModel)]="nombre">
-  <br/>
-  Mi nombre es: {{nombre}}
-</div>
-
 <!--The content below is only a placeholder and can be replaced.-->
 <!--Google Maps-->
 <agm-map [latitude]="lat" [longitude]="lng">
@@ -39,3 +19,24 @@
         </li></a>
     </ng-container>
 </ul>
+<hr />
+<div style="text-align: center">
+  <h1>String interpolation</h1>
+  <h2>{{ title }}</h2>
+  <h3>{{ a+b }}</h3>
+</div>
+<div style="text-align: center">
+  <h1>Property Binding</h1>
+  <button [disabled]="!listo">Click 1</button>
+</div>
+<div style="text-align: center">
+  <h1>Event Binding</h1>
+  <button [disabled]="!listo" (click)="hacerAlgo()">Click 2</button>
+</div>
+<div style="text-align: center">
+  <h1>Two Way Data Binding</h1>
+  <input type="text" placeholder="Tu nombre" [(ngModel)]="nombre">
+  <br/>
+  Mi nombre es: {{nombre}}
+</div>
+<hr />
