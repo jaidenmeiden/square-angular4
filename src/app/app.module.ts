@@ -7,12 +7,15 @@ import {AgmCoreModule} from '@agm/core';
 //Se importan las directivas personalizadas para poderlas usar
 import {ResaltarDirective} from "./directives/resaltar.directive";
 import {ContarClicksDirective} from "./directives/contar-clicks.directive";
+//Se importan el componente donde se incluyeron los ejemplos anteriores
+import { DirectivasComponent } from './directivas/directivas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ResaltarDirective,
-    ContarClicksDirective
+    ContarClicksDirective,
+    DirectivasComponent
   ],
   imports: [
     BrowserModule,
