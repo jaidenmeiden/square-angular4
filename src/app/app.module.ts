@@ -8,7 +8,7 @@ import {AgmCoreModule} from '@agm/core';
 import {ResaltarDirective} from "./directives/resaltar.directive";
 import {ContarClicksDirective} from "./directives/contar-clicks.directive";
 //Se importan el componente donde se incluyeron los ejemplos anteriores
-import { DirectivasComponent } from './directivas/directivas.component';
+import { DirectivasComponent } from './components/directivas/directivas.component';
 
 @NgModule({
   declarations: [
