@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Platzi Square';
+  a = 3;
+  b = 7;
+  listo = false;
+  nombre:string = '';
+
   lugares:any = [
     {plan: 'pagado', cercania: 1, distancia: 1, active: true, nombre:'Florería la Gardenia'},
     {plan: 'gratuito', cercania: 1, distancia: 1.8, active: true, nombre:'Donas la pasadita'},
@@ -18,6 +23,12 @@ export class AppComponent {
   lat:number = 4.6560663;
   lng:number = -74.0595918;
   constructor(){
+    setTimeout(() => {
+      this.listo = true;
+    }, 3000);
+  }
 
+  hacerAlgo() {
+    alert("Hola mundo!");
   }
 }
