@@ -9,6 +9,12 @@ import {ResaltarDirective} from "./directives/resaltar.directive";
 import {ContarClicksDirective} from "./directives/contar-clicks.directive";
 //Se importan el componente donde se incluyeron los ejemplos anteriores
 import { DirectivasComponent } from './components/directivas/directivas.component';
+import {Routes} from '@angular/router';
+
+const appRoutes: Routes = [
+  {path: '', component: AppComponent},
+  {path: 'lugares', component: AppComponent}
+];
 
 @NgModule({
   declarations: [
