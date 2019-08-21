@@ -12,7 +12,10 @@ export class DetalleComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     console.log(this.route.snapshot.params['id']);
-  }
+    console.log(this.route.snapshot.queryParams);
+    console.log(this.route.snapshot.queryParams['action']);
+    console.log(this.route.snapshot.queryParams['referer']);
+}
 
   ngOnInit() {
   }
