@@ -36,6 +36,19 @@
             <label for="descripcion">Descripción</label>
             <textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="lugar.descripcion" rows="3"></textarea>
           </div>
+          <h3>Datos de direación</h3>
+          <div class="form-group">
+            <label for="calle">Calle y número</label>
+            <input type="text" class="form-control" id="calle" name="calle" [(ngModel)]="lugar.calle" aria-describedby="emailHelp" placeholder="Ingresar calle">
+          </div>
+          <div class="form-group">
+            <label for="ciudad">Ciudad</label>
+            <input type="text" class="form-control" id="ciudad" name="ciudad" [(ngModel)]="lugar.ciudad" aria-describedby="emailHelp" placeholder="Ingresar ciudad">
+          </div>
+          <div class="form-group">
+            <label for="pais">Pais</label>
+            <input type="text" class="form-control" id="pais" name="pais" [(ngModel)]="lugar.pais" aria-describedby="emailHelp" placeholder="Ingresar pais">
+          </div>
           <button type="submit" class="btn btn-primary" (click)="guardarLugar()">Guardar</button>
         </form>
       </div>
