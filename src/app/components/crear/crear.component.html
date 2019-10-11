@@ -1,0 +1,44 @@
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="well">
+        <a routerLink="/lugares">Lugares</a> / Crear lugar
+      </div>
+    </div>
+  </div>
+</div>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form>
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="lugar.nombre" aria-describedby="emailHelp" placeholder="Ingresar nombre">
+          </div>
+          <div class="form-group">
+            <label for="ditancia">Distancia</label>
+            <input type="number" class="form-control" id="ditancia" name="ditancia" [(ngModel)]="lugar.distancia" aria-describedby="emailHelp" placeholder="km">
+          </div>
+          <div class="form-group">
+            <label for="cercania">Cercania</label>
+            <input type="number" class="form-control" id="cercania" name="cercania" [(ngModel)]="lugar.cercania" aria-describedby="emailHelp" placeholder="Ingresar cercania">
+          </div>
+          <div class="form-group">
+            <label for="plan">Plan</label>
+            <select class="form-control" id="plan" name="plan" [(ngModel)]="lugar.plan">
+              <option id="gratuito">Gratuito</option>
+              <option id="pagado">Pagado</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="lugar.descripcion" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" (click)="guardarLugar()">Guardar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
