@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AngularFireDatabase} from "@angular/fire/database";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ export class LugaresService {
   ];
 
   constructor(
-    private afDB: AngularFireDatabase
+    private afDB: AngularFireDatabase,
+    public _http: HttpClient
   ) {
     console.log(this.lugares);
   }
@@ -34,5 +36,10 @@ export class LugaresService {
   guardarLugar(lugar) {
     console.log(lugar);
     this.afDB.database.ref('lugares/' + lugar.id).set(lugar);
+  }
+
+  public obtenerGeoData(direccion){
+    //http://maps.google.com/maps/api/geocode/json?address=9-55+calle+72,+Bogota,Colombia
+    return this._http.get('http://maps.google.com/maps/api/geocode/json?key=AIzaSyCiGsoFevMN2J-dXWtD_31AN4UkraR4Hq0&address='+direccion);
   }
 }
