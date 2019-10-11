@@ -17,8 +17,8 @@ export class CrearComponent implements OnInit {
     this.lugar = new Lugar(
       0,
       '',
-      null,
-      null,
+      '',
+      '',
       true,
       '',
       ''
@@ -31,6 +31,16 @@ export class CrearComponent implements OnInit {
   guardarLugar() {
     this.lugar.id = Date.now();
     this._lugaresServices.guardarLugar(this.lugar);
+    alert("Información almacenada con exito!");
+    this.lugar = new Lugar(
+      0,
+      '',
+      '',
+      '',
+      true,
+      '',
+      ''
+    );
   }
 
 }
