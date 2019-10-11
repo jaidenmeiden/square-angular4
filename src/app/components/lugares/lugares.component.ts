@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+// Servicios
+import {LugaresService} from "../../services/lugares.service";
 
 @Component({
   selector: 'app-lugares',
@@ -6,22 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lugares.component.css']
 })
 export class LugaresComponent implements OnInit {
-  title = 'Platzi Square';
 
-  lugares:any = [
-    {id: 1 ,plan: 'gratuito', cercania: 1, distancia: 1, active: true, nombre:'Florería la Gardenia'},
-    {id: 2 ,plan: 'gratuito', cercania: 1, distancia: 1.8, active: true, nombre:'Donas la pasadita'},
-    {id: 3 ,plan: 'gratuito', cercania: 2, distancia: 5, active: true, nombre:'Veterinaria Huellitas Felices'},
-    {id: 4 ,plan: 'gratuito', cercania: 2, distancia: 10, active: false, nombre:'Sushi Suhiroll'},
-    {id: 5 ,plan: 'gratuito', cercania: 3, distancia: 35, active: true, nombre:'Hotel la Gracia'},
-    {id: 6 ,plan: 'gratuito', cercania: 3, distancia: 120, active: false, nombre:'Zapatería el Clavo'},
-    {id: 7 ,plan: 'pagado', cercania: 1, distancia: 3, active: true, nombre:'Panadería de Chía'},
-    {id: 8 ,plan: 'pagado', cercania: 3, distancia: 90, active: true, nombre:'Bizcochería'}
-  ];
-  lat:number = 4.6560663;//(Google Maps)
-  lng:number = -74.0595918;//(Google Maps)
+  private title = 'Platzi Square';
+  public lat:number = 4.6560663;//(Google Maps)
+  public lng:number = -74.0595918;//(Google Maps)
+  private lugares: any = {};
 
-  constructor() { }
+  constructor(
+    private _lugaresServices: LugaresService
+  ) {
+    this.lugares = _lugaresServices.getLugares();
+  }
 
   ngOnInit() {
   }
