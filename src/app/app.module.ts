@@ -12,11 +12,13 @@ import { DirectivasComponent } from './components/directivas/directivas.componen
 import {RouterModule, Routes} from '@angular/router';
 import { DetalleComponent } from './components/detalle/detalle.component';
 import { LugaresComponent } from './components/lugares/lugares.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
 
 const appRoutes: Routes = [
   {path: '', component: LugaresComponent},
   {path: 'lugares', component: LugaresComponent},
-  {path: 'detalle/:id', component: DetalleComponent}
+  {path: 'detalle/:id', component: DetalleComponent},
+  {path: 'contacto', component: ContactoComponent}
 ];
 
 @NgModule({
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
     ContarClicksDirective,
     DirectivasComponent,
     DetalleComponent,
-    LugaresComponent
+    LugaresComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,
