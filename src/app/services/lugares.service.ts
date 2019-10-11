@@ -31,6 +31,6 @@ export class LugaresService {
 
   guardarLugar(lugar) {
     console.log(lugar);
-    this.afDB.database.ref('lugares/1').set(lugar);
+    this.afDB.database.ref('lugares/' + lugar.id).set(lugar);
   }
 }

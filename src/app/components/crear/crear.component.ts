@@ -27,7 +27,9 @@ export class CrearComponent implements OnInit {
 
   ngOnInit() {
   }
+
   guardarLugar() {
+    this.lugar.id = Date.now();
     this._lugaresServices.guardarLugar(this.lugar);
   }
 
