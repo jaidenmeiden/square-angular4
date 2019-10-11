@@ -1,1 +1,27 @@
-<p>detalle works!</p>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="well">
+        <a routerLink="/lugares">Lugares</a> / {{lugar.nombre}}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="card" style="width: 400px;">
+          <div class="card-body">
+            <h3 class="card-title">{{lugar.nombre}}</h3>
+            <h6 class="card-subtitle mb-2 text-muted">{{lugar.distancia}} km</h6>
+            <p class="card-text">{{lugar.description}}</p>
+            <p class="card-text">Plan: {{lugar.plan}}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
