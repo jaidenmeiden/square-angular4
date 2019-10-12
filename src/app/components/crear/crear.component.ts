@@ -36,27 +36,29 @@ export class CrearComponent implements OnInit {
   guardarLugar() {
     var direccion = this.lugar.calle + ',' + this.lugar.ciudad + ',' + this.lugar.pais;
     this._lugaresServices.obtenerGeoData(direccion)
-      .subscribe((result: any) => {
-        this.lugar.lat = result.results[0].geometry.location.lat;
-        this.lugar.lng = result.results[0].geometry.location.lng;
+      .subscribe((response: any) => {
+        if(typeof response.results[0] !== "undefined") {
+          this.lugar.lat = response.results[0].geometry.location.lat;
+          this.lugar.lng = response.results[0].geometry.location.lng;
 
-        this.lugar.id = Date.now();
-        this._lugaresServices.guardarLugar(this.lugar);
-        alert("Información almacenada con exito!");
-        this.lugar = new Lugar(
-          0,
-          '',
-          '',
-          '',
-          true,
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          ''
-        );
+          this.lugar.id = Date.now();
+          this._lugaresServices.guardarLugar(this.lugar);
+          alert("Información almacenada con exito!");
+          this.lugar = new Lugar(
+            0,
+            '',
+            '',
+            '',
+            true,
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            ''
+          );
+        }
       });
   }
 
