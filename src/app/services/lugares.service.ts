@@ -34,12 +34,19 @@ export class LugaresService {
   }
 
   guardarLugar(lugar) {
-    console.log(lugar);
+    this.afDB.database.ref('lugares/' + lugar.id).set(lugar);
+  }
+
+  editarLugar(lugar) {
     this.afDB.database.ref('lugares/' + lugar.id).set(lugar);
   }
 
   public obtenerGeoData(direccion) {
     // http://maps.google.com/maps/api/geocode/json?key=AIzaSyAxak2QXBI95W8cre6D1lEPgwsEv92w3kw&address=9-55+calle+72,+Bogota,Colombia
     return this._http.get('https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCiGsoFevMN2J-dXWtD_31AN4UkraR4Hq0&address=' + direccion);
+  }
+
+  public getLugar(id) {
+    return this.afDB.object('lugares/'+id).valueChanges();
   }
 }
