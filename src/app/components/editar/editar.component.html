@@ -1,0 +1,58 @@
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="well">
+        <a routerLink="/lugares">Lugares</a> / Crear lugar
+      </div>
+    </div>
+  </div>
+</div>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form>
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="lugar.nombre" aria-describedby="emailHelp" placeholder="Ingresar nombre">
+          </div>
+          <div class="form-group">
+            <label for="ditancia">Distancia</label>
+            <input type="number" class="form-control" id="ditancia" name="ditancia" [(ngModel)]="lugar.distancia" aria-describedby="emailHelp" placeholder="km">
+          </div>
+          <div class="form-group">
+            <label for="cercania">Cercania</label>
+            <input type="number" class="form-control" id="cercania" name="cercania" [(ngModel)]="lugar.cercania" aria-describedby="emailHelp" placeholder="Ingresar cercania">
+          </div>
+          <div class="form-group">
+            <label for="plan">Plan</label>
+            <select class="form-control" id="plan" name="plan" [(ngModel)]="lugar.plan">
+              <option value="">Seleccionar</option>
+              <option value="gratuito">Gratuito</option>
+              <option value="pagado">Pagado</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="lugar.descripcion" rows="3"></textarea>
+          </div>
+          <h3>Datos de direación</h3>
+          <div class="form-group">
+            <label for="calle">Calle y número</label>
+            <input type="text" class="form-control" id="calle" name="calle" [(ngModel)]="lugar.calle" aria-describedby="emailHelp" placeholder="Ingresar calle">
+          </div>
+          <div class="form-group">
+            <label for="ciudad">Ciudad</label>
+            <input type="text" class="form-control" id="ciudad" name="ciudad" [(ngModel)]="lugar.ciudad" aria-describedby="emailHelp" placeholder="Ingresar ciudad">
+          </div>
+          <div class="form-group">
+            <label for="pais">Pais</label>
+            <input type="text" class="form-control" id="pais" name="pais" [(ngModel)]="lugar.pais" aria-describedby="emailHelp" placeholder="Ingresar pais">
+          </div>
+          <button type="submit" class="btn btn-primary" (click)="editarLugar()">Guardar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
