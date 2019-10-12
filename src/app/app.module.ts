@@ -19,13 +19,15 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/da
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { CrearComponent } from './components/crear/crear.component';
 import {HttpClientModule} from "@angular/common/http";
+import { EditarComponent } from './components/editar/editar.component';
 
 const appRoutes: Routes = [
   {path: '', component: LugaresComponent},
   {path: 'lugares', component: LugaresComponent},
   {path: 'detalle/:id', component: DetalleComponent},
   {path: 'contacto', component: ContactoComponent},
-  {path: 'crear', component: CrearComponent}
+  {path: 'crear', component: CrearComponent},
+  {path: 'editar/:id', component: EditarComponent}
 ];
 
 export const firebaseConfig = {
@@ -45,7 +47,8 @@ export const firebaseConfig = {
     DetalleComponent,
     LugaresComponent,
     ContactoComponent,
-    CrearComponent
+    CrearComponent,
+    EditarComponent
   ],
   imports: [
     BrowserModule,
