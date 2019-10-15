@@ -17,6 +17,20 @@ export class EditarComponent implements OnInit {
     private route: ActivatedRoute,
     private _lugaresServices: LugaresService
   ) {
+    this.lugar = new Lugar(
+      0,
+      '',
+      '',
+      '',
+      true,
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      ''
+    );
     this.id = this.route.snapshot.params['id'];
     this._lugaresServices.getLugar(this.id)
       .subscribe((lugar: any) => {
