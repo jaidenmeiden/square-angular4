@@ -42,7 +42,7 @@ export class CrearComponent implements OnInit {
           this.lugar.lng = response.results[0].geometry.location.lng;
 
           this.lugar.id = Date.now();
-          this._lugaresServices.guardarLugar(this.lugar);
+          this._lugaresServices.guardarLugarSockets(this.lugar);
           alert("Información almacenada con exito!");
           this.lugar = new Lugar(
             0,

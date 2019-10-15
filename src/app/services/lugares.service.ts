@@ -7,6 +7,8 @@ import {HttpClient} from "@angular/common/http";
 })
 export class LugaresService {
 
+  API_ENDPOINT = 'https://platzisquare-79f58.firebaseio.com';
+
   constructor(
     private afDB: AngularFireDatabase,
     public _http: HttpClient
@@ -18,8 +20,13 @@ export class LugaresService {
     return this.afDB.list('lugares/').valueChanges();
   }
 
-  guardarLugar(lugar) {
+  guardarLugarSockets(lugar) {
     this.afDB.database.ref('lugares/' + lugar.id).set(lugar);
+  }
+
+  guardarLugarHttp(lugar) {
+    const headers = new Headers({"Content-Type":"application/json"});
+    return this._http.post(this.API_ENDPOINT + '/lugares.json', lugar, {headers:headers});
   }
 
   editarLugar(lugar) {
@@ -27,7 +34,7 @@ export class LugaresService {
   }
 
   public obtenerGeoData(direccion) {
-    // http://maps.google.com/maps/api/geocode/json?key=AIzaSyCiGsoFevMN2J-dXWtD_31AN4UkraR4Hq0&address=9-55+calle+72,+Bogota,Colombia
+    // https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCiGsoFevMN2J-dXWtD_31AN4UkraR4Hq0&address=9-55+calle+72,+Bogota,Colombia
     return this._http.get('https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCiGsoFevMN2J-dXWtD_31AN4UkraR4Hq0&address=' + direccion);
   }
 
