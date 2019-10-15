@@ -1,6 +1,8 @@
 <!--Google Maps-->
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="12">
+  <ng-container *ngFor="let lugar of lugares | async">
+    <agm-marker [latitude]="lugar.lat" [longitude]="lugar.lng" *ngIf="lugar.lat != '' && lugar.lng != ''"></agm-marker>
+  </ng-container>
 </agm-map>
 <hr />
 <div class="container">
@@ -13,7 +15,7 @@
     <div  class="col-md-8">
       <h2>Lugares cercanos</h2>
       <ul class="list-group">
-        <ng-container *ngFor="let lugar of lugares">
+        <ng-container *ngFor="let lugar of lugares | async">
           <a routerLink="/editar/{{lugar.id}}"><li class="list-group-item" *ngIf="lugar.active">{{lugar.nombre}}</li></a>
         </ng-container>
       </ul>
@@ -21,7 +23,7 @@
     <div  class="col-md-4">
       <h2>Destacados</h2>
       <ul class="list-group">
-        <ng-container *ngFor="let lugar of lugares">
+        <ng-container *ngFor="let lugar of lugares | async">
           <li class="list-group-item" *ngIf="lugar.active">{{lugar.nombre}}</li>
         </ng-container>
       </ul>

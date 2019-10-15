@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 // Servicios
 import {LugaresService} from "../../services/lugares.service";
+//Importar datos con firebase
+import {Observable} from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-lugares',
@@ -11,17 +13,15 @@ import {LugaresService} from "../../services/lugares.service";
 export class LugaresComponent implements OnInit {
 
   private title = 'Platzi Square';
-  public lat:number = 4.6560663;//(Google Maps)
-  public lng:number = -74.0595918;//(Google Maps)
-  private lugares: any = {};
+  public lat:number = 4.854492;//(Google Maps)
+  public lng:number = -74.053045;//(Google Maps)
+  private lugares: Observable<any[]>;
 
   constructor(
     private _lugaresServices: LugaresService
   ) {
-    this._lugaresServices.getLugares()
-      .subscribe(lugares => {
-        this.lugares = lugares;
-      });
+    console.log("Hola...");
+    this.lugares = this._lugaresServices.getLugares();
   }
 
   ngOnInit() {
