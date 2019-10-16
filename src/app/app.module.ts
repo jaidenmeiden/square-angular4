@@ -1,26 +1,30 @@
+//Se importan los modulos necesarios
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppComponent} from './app.component';
 import {FormsModule} from "@angular/forms";
 import {AgmCoreModule} from '@agm/core';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
+import {AngularFireAuthModule } from '@angular/fire/auth';
+import {HttpClientModule} from "@angular/common/http";
+
 //Se importan las directivas personalizadas para poderlas usar
 import {ResaltarDirective} from "./directives/resaltar.directive";
 import {ContarClicksDirective} from "./directives/contar-clicks.directive";
-//Se importan el componente donde se incluyeron los ejemplos anteriores
-import { DirectivasComponent } from './components/directivas/directivas.component';
-import {RouterModule, Routes} from '@angular/router';
-import { DetalleComponent } from './components/detalle/detalle.component';
-import { LugaresComponent } from './components/lugares/lugares.component';
-import {LugaresHttpComponent} from './components/lugaresHttp/lugaresHttp.component';
-import { ContactoComponent } from './components/contacto/contacto.component';
 
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { CrearComponent } from './components/crear/crear.component';
-import {HttpClientModule} from "@angular/common/http";
-import { EditarComponent } from './components/editar/editar.component';
+//Se importan los pipes necesarios
+import {LinkifystrPipe} from './pipes/linkifystr.pipe';
+
+//Se importan el componentes donde se incluyeron los ejemplos anteriores
+import {DirectivasComponent} from './components/directivas/directivas.component';
+import {RouterModule, Routes} from '@angular/router';
+import {DetalleComponent} from './components/detalle/detalle.component';
+import {LugaresComponent} from './components/lugares/lugares.component';
+import {LugaresHttpComponent} from './components/lugaresHttp/lugaresHttp.component';
+import {ContactoComponent} from './components/contacto/contacto.component';
+import {CrearComponent} from './components/crear/crear.component';
+import {EditarComponent} from './components/editar/editar.component';
 
 const appRoutes: Routes = [
   {path: '', component: LugaresComponent},
@@ -45,6 +49,7 @@ export const firebaseConfig = {
     AppComponent,
     ResaltarDirective,
     ContarClicksDirective,
+    LinkifystrPipe,
     DirectivasComponent,
     DetalleComponent,
     LugaresComponent,
