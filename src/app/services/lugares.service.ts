@@ -25,6 +25,14 @@ export class LugaresService {
     return this._http.get(this.API_ENDPOINT + '/lugares.json', {headers:headers});
   }
 
+  getLugaresHttpFormateo() {
+    return this._http.get(this.API_ENDPOINT + '/.json')
+      .pipe((resultado) => {
+        const data = resultado['lugares'];
+        return data;
+      });
+  }
+
   guardarLugarSockets(lugar) {
     this.afDB.database.ref('lugares/' + lugar.id).set(lugar);
   }
