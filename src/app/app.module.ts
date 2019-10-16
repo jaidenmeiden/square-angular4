@@ -12,6 +12,7 @@ import { DirectivasComponent } from './components/directivas/directivas.componen
 import {RouterModule, Routes} from '@angular/router';
 import { DetalleComponent } from './components/detalle/detalle.component';
 import { LugaresComponent } from './components/lugares/lugares.component';
+import {LugaresHttpComponent} from './components/lugaresHttp/lugaresHttp.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 
 import { AngularFireModule } from '@angular/fire';
@@ -24,6 +25,7 @@ import { EditarComponent } from './components/editar/editar.component';
 const appRoutes: Routes = [
   {path: '', component: LugaresComponent},
   {path: 'lugares', component: LugaresComponent},
+  {path: 'lugaresHttp', component: LugaresHttpComponent},
   {path: 'detalle/:id', component: DetalleComponent},
   {path: 'contacto', component: ContactoComponent},
   {path: 'crear', component: CrearComponent},
@@ -46,6 +48,7 @@ export const firebaseConfig = {
     DirectivasComponent,
     DetalleComponent,
     LugaresComponent,
+    LugaresHttpComponent,
     ContactoComponent,
     CrearComponent,
     EditarComponent

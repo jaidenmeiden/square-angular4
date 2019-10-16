@@ -1,0 +1,32 @@
+<!--Google Maps-->
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="12">
+  <ng-container *ngFor="let lugar of lugaresHttp">
+    <agm-marker [latitude]="lugar.lat" [longitude]="lugar.lng" *ngIf="lugar.lat != '' && lugar.lng != ''"></agm-marker>
+  </ng-container>
+</agm-map>
+<hr />
+<div class="container">
+  <div class="row">
+    <div  class="col-md-8">
+      <a class="btn btn-primary" routerLink="/crear">Crear nuevo negocio</a>
+    </div>
+  </div>
+  <div class="row">
+    <div  class="col-md-8">
+      <h2>Lugares cercanos</h2>
+      <ul class="list-group">
+        <ng-container *ngFor="let lugar of lugaresHttp">
+          <a routerLink="/editar/{{lugar.id}}"><li class="list-group-item" *ngIf="lugar.active">{{lugar.nombre}}</li></a>
+        </ng-container>
+      </ul>
+    </div>
+    <div  class="col-md-4">
+      <h2>Destacados</h2>
+      <ul class="list-group">
+        <ng-container *ngFor="let lugar of lugaresHttp">
+          <li class="list-group-item" *ngIf="lugar.active">{{lugar.nombre}}</li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</div>
