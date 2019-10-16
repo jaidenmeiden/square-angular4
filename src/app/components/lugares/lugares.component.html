@@ -25,13 +25,14 @@
         </ng-container>
       </ul>
     </div>
-    <div  class="col-md-4">
+    <div class="col-md-4" [@contenedorAnimado]="state">
       <h2>Destacados</h2>
-      <ul class="list-group">
-        <ng-container *ngFor="let lugar of lugares | async">
-          <li class="list-group-item" *ngIf="lugar.active">{{lugar.nombre}}</li>
-        </ng-container>
-      </ul>
+      <ng-container *ngFor="let lugar of lugares | async">
+        <div class="bg-warning padding" *ngIf="lugar.plan == 'pagado'">
+          <a routerLink="/crear/{{lugar.id}}"><h3>{{lugar.nombre}}</h3></a>
+          <p [innerHtml]="lugar.descripcion | linkifystr"></p>
+        </div>
+      </ng-container>
     </div>
   </div>
 </div>
