@@ -20,8 +20,8 @@ export class LugaresComponent implements OnInit {
   constructor(
     private _lugaresServices: LugaresService
   ) {
-    console.log("Hola...");
-    this.lugares = this._lugaresServices.getLugares();
+    console.log("Hola Sockects...");
+    this.lugares = this._lugaresServices.getLugaresSockets();
   }
 
   ngOnInit() {

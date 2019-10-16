@@ -18,7 +18,7 @@ export class DetalleComponent implements OnInit {
     private route: ActivatedRoute,
     private _lugaresServices: LugaresService
   ) {
-    this.lugares = this._lugaresServices.getLugares();
+    this.lugares = this._lugaresServices.getLugaresSockets();
     console.log(this.route.snapshot.params['id']);
     console.log(this.route.snapshot.queryParams);
     console.log(this.route.snapshot.queryParams['action']);
