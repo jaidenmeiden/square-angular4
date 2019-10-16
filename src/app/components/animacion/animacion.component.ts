@@ -34,4 +34,13 @@ export class AnimacionComponent implements OnInit {
     this.state = (this.state === 'final') ? 'inicial' : 'final';
   }
 
+  animacionInicia(event) {
+    console.log(event);
+    console.log('Animacion Inicia');
+  }
+  animacionTermina(event) {
+    console.log(event);
+    console.log('Animacion Termina');
+  }
+
 }

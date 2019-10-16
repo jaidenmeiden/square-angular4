@@ -1,2 +1,2 @@
 <a class="btn btn-primary" (click)="animar()">Animar</a>
-<div id="cuadrado" [@contenedorAnimado]="state"></div>
+<div id="cuadrado" [@contenedorAnimado]="state" (@contenedorAnimado.start)="animacionInicia($event)" (@contenedorAnimado.done)="animacionTermina($event)"></div>
