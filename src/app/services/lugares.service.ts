@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AngularFireDatabase} from '@angular/fire/database';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +16,13 @@ export class LugaresService {
 
   }
 
-  getLugares() {
+  getLugaresSockets() {
     return this.afDB.list('lugares/').valueChanges();
+  }
+
+  getLugaresHttp() {
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    return this._http.get(this.API_ENDPOINT + '/lugares.json', {headers:headers});
   }
 
   guardarLugarSockets(lugar) {
@@ -25,7 +30,7 @@ export class LugaresService {
   }
 
   guardarLugarHttp(lugar) {
-    const headers = new Headers({"Content-Type":"application/json"});
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
     return this._http.post(this.API_ENDPOINT + '/lugares.json', lugar, {headers:headers});
   }
 
