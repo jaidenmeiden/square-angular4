@@ -16,13 +16,12 @@
       <h2>Lugares cercanos</h2>
       <ul class="list-group">
         <ng-container *ngFor="let lugar of lugares | async">
-          <a routerLink="/editar/{{lugar.id}}">
-            <li class="list-group-item" *ngIf="lugar.active">
-              {{lugar.nombre | lowercase}}
-              <br/>
-              <small>Creado: {{lugar.id | date:'medium' | uppercase}}</small>
-            </li>
-          </a>
+          <li class="list-group-item" *ngIf="lugar.active">
+            <a routerLink="/editar/{{lugar.id}}">{{lugar.nombre | lowercase}}</a>
+            <br/>
+            <small>Creado: {{lugar.id | date:'medium' | uppercase}}</small>
+            <p>{{lugar.descripcion}}</p>
+          </li>
         </ng-container>
       </ul>
     </div>
