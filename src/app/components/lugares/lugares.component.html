@@ -20,7 +20,7 @@
             <a routerLink="/editar/{{lugar.id}}">{{lugar.nombre | lowercase}}</a>
             <br/>
             <small>Creado: {{lugar.id | date:'medium' | uppercase}}</small>
-            <p>{{lugar.descripcion}}</p>
+            <p [innerHTML]="lugar.descripcion | linkifystr"></p>
           </li>
         </ng-container>
       </ul>
