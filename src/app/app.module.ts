@@ -8,6 +8,7 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import {AngularFireAuthModule } from '@angular/fire/auth';
 import {HttpClientModule} from "@angular/common/http";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 //Se importan las directivas personalizadas para poderlas usar
 import {ResaltarDirective} from "./directives/resaltar.directive";
@@ -25,9 +26,11 @@ import {LugaresHttpComponent} from './components/lugaresHttp/lugaresHttp.compone
 import {ContactoComponent} from './components/contacto/contacto.component';
 import {CrearComponent} from './components/crear/crear.component';
 import {EditarComponent} from './components/editar/editar.component';
+import { AnimacionComponent } from './components/animacion/animacion.component';
 
 const appRoutes: Routes = [
   {path: '', component: LugaresComponent},
+  {path: 'animacion', component: AnimacionComponent},
   {path: 'lugares', component: LugaresComponent},
   {path: 'lugaresHttp', component: LugaresHttpComponent},
   {path: 'detalle/:id', component: DetalleComponent},
@@ -56,7 +59,8 @@ export const firebaseConfig = {
     LugaresHttpComponent,
     ContactoComponent,
     CrearComponent,
-    EditarComponent
+    EditarComponent,
+    AnimacionComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +72,8 @@ export const firebaseConfig = {
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule
   ],
   providers: [
     AngularFireDatabase
