@@ -20,7 +20,7 @@
             <li class="list-group-item" *ngIf="lugar.active">
               {{lugar.nombre | lowercase}}
               <br/>
-              <small>Creado: {{lugar.id | date | uppercase}}</small>
+              <small>Creado: {{lugar.id | date:'medium' | uppercase}}</small>
             </li>
           </a>
         </ng-container>
