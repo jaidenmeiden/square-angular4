@@ -19,6 +19,7 @@ export class AutorizacionService {
     this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
       .then((response) => {
         alert('Usuario logueado con exito!');
+        this.router.navigate(['lugares']);
       }).catch((error) => {
       alert('Un error ha ocurrido');
       console.log(error);
@@ -51,5 +52,10 @@ export class AutorizacionService {
 
   public isLogged() {
     return this.angularFireAuth.authState;
+  }
+
+  public logout() {
+    this.angularFireAuth.auth.signOut();
+    this.router.navigate(['lugares']);
   }
 }
