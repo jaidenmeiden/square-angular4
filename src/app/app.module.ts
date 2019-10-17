@@ -17,19 +17,27 @@ import {ContarClicksDirective} from "./directives/contar-clicks.directive";
 //Se importan los pipes necesarios
 import {LinkifystrPipe} from './pipes/linkifystr.pipe';
 
+//Se imporrtan los servicios
+import {LugaresService} from "./services/lugares.service";
+import {AutorizacionService} from "./services/autorizacion.service";
+
 //Se importan el componentes donde se incluyeron los ejemplos anteriores
 import {DirectivasComponent} from './components/directivas/directivas.component';
 import {RouterModule, Routes} from '@angular/router';
+import {LoginComponent} from './components/login/login.component';
+import {RegistroComponent} from './components/registro/registro.component';
 import {DetalleComponent} from './components/detalle/detalle.component';
 import {LugaresComponent} from './components/lugares/lugares.component';
 import {LugaresHttpComponent} from './components/lugaresHttp/lugaresHttp.component';
 import {ContactoComponent} from './components/contacto/contacto.component';
 import {CrearComponent} from './components/crear/crear.component';
 import {EditarComponent} from './components/editar/editar.component';
-import { AnimacionComponent } from './components/animacion/animacion.component';
+import {AnimacionComponent} from './components/animacion/animacion.component';
 
 const appRoutes: Routes = [
   {path: '', component: LugaresComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'registro', component: RegistroComponent},
   {path: 'animacion', component: AnimacionComponent},
   {path: 'lugares', component: LugaresComponent},
   {path: 'lugaresHttp', component: LugaresHttpComponent},
@@ -50,6 +58,8 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
+    RegistroComponent,
     ResaltarDirective,
     ContarClicksDirective,
     LinkifystrPipe,
@@ -76,7 +86,9 @@ export const firebaseConfig = {
     BrowserAnimationsModule
   ],
   providers: [
-    AngularFireDatabase
+    AngularFireDatabase,
+    LugaresService,
+    AutorizacionService
   ],
   bootstrap: [AppComponent]
 })
