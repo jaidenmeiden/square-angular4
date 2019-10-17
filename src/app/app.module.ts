@@ -14,6 +14,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ResaltarDirective} from "./directives/resaltar.directive";
 import {ContarClicksDirective} from "./directives/contar-clicks.directive";
 
+//Se importan el guardia
+import {MiguardiaGuard} from "./guards/miguardia.guard";
+
 //Se importan los pipes necesarios
 import {LinkifystrPipe} from './pipes/linkifystr.pipe';
 
@@ -43,8 +46,8 @@ const appRoutes: Routes = [
   {path: 'lugaresHttp', component: LugaresHttpComponent},
   {path: 'detalle/:id', component: DetalleComponent},
   {path: 'contacto', component: ContactoComponent},
-  {path: 'crear', component: CrearComponent},
-  {path: 'editar/:id', component: EditarComponent}
+  {path: 'crear', component: CrearComponent, canActivate:[MiguardiaGuard]},
+  {path: 'editar/:id', component: EditarComponent, canActivate:[MiguardiaGuard]}
 ];
 
 export const firebaseConfig = {
@@ -86,6 +89,7 @@ export const firebaseConfig = {
     BrowserAnimationsModule
   ],
   providers: [
+    MiguardiaGuard,
     AngularFireDatabase,
     LugaresService,
     AutorizacionService
