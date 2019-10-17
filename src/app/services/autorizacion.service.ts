@@ -8,7 +8,9 @@ export class AutorizacionService {
 
   constructor(
     private angularFireAuth: AngularFireAuth
-  ) { }
+  ) {
+    this.isLogged();
+  }
 
   public login = (email, password) => {
     this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
@@ -29,4 +31,8 @@ export class AutorizacionService {
         console.log(error);
       })
   };
+
+  public isLogged() {
+    return this.angularFireAuth.authState;
+  }
 }
