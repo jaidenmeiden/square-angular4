@@ -26,11 +26,7 @@ export class LugaresService {
   }
 
   getLugaresHttpFormateo() {
-    return this._http.get(this.API_ENDPOINT + '/.json')
-      .pipe((resultado) => {
-        const data = resultado['lugares'];
-        return data;
-      });
+    return this._http.get(this.API_ENDPOINT + '/.json');
   }
 
   guardarLugarSockets(lugar) {

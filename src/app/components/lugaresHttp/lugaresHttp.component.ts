@@ -37,7 +37,7 @@ export class LugaresHttpComponent implements OnInit {
     this._lugaresHttpServices.getLugaresHttpFormateo().subscribe(
       response => {
         const me = this;
-        me.lugaresHttpFormateo = response;
+        me.lugaresHttpFormateo = response['lugares'];
         me.lugaresHttpFormateo = Object.keys(me.lugaresHttpFormateo).map(function(key) {
           return me.lugaresHttpFormateo[key];
         });
