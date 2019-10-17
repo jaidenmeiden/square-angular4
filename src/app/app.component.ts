@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AutorizacionService} from "./services/autorizacion.service";
+import {Observable} from "rxjs";
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +10,7 @@ import {AutorizacionService} from "./services/autorizacion.service";
 })
 export class AppComponent implements OnInit {
   private loggedIn = false;
+  private loggedUser: any = null;
 
   constructor(
     private autorizacionService: AutorizacionService
@@ -16,6 +19,10 @@ export class AppComponent implements OnInit {
       .subscribe((result) => {
         if (result && result.uid) {
           this.loggedIn = true;
+          setTimeout(()=> {
+            this.loggedUser = this.autorizacionService.getUser().currentUser.email;
+          }, 500);
+
         } else {
           this.loggedIn = false;
         }

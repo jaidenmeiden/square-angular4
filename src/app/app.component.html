@@ -25,6 +25,7 @@
       </li>
     </ul>
     <ul class="navbar-nav mr-auto" *ngIf="loggedIn">
+      <li class="nav-item" *ngIf="loggedUser"><a class="nav-link">{{loggedUser}}</a></li>
       <li routerLinkActive="active" class="nav-item">
         <a class="nav-link" (click)="logout()">Salir</a>
       </li>

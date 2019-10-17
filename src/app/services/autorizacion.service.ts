@@ -58,4 +58,8 @@ export class AutorizacionService {
     this.angularFireAuth.auth.signOut();
     this.router.navigate(['lugares']);
   }
+
+  public getUser() {
+    return this.angularFireAuth.auth;
+  }
 }
