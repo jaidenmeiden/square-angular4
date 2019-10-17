@@ -7,14 +7,20 @@ import {AutorizacionService} from "../../services/autorizacion.service";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  private login:any = {};
 
   constructor(
     private autorizacionService: AutorizacionService
   ) {
-    this.autorizacionService.login('email', 'password');
+
   }
 
   ngOnInit() {
+
+  }
+
+  loguear() {
+    this.autorizacionService.login(this.login.email, this.login.password);
   }
 
 }
