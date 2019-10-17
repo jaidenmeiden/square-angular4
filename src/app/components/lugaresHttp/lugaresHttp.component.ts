@@ -1,14 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {animate, state, style, transition, trigger} from "@angular/animations";
 // Servicios
 import {LugaresService} from "../../services/lugares.service";
-//Importar datos con firebase
-import {Observable} from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-lugaresHttp',
   templateUrl: './lugaresHttp.component.html',
-  styleUrls: ['./lugaresHttp.component.css']
+  styleUrls: ['./lugaresHttp.component.css'],
+  animations: [
+    trigger('contenedorAnimado', [
+      state('inicial', style({
+        opacity: 0
+      })),
+      state('final', style({
+        opacity: 1
+      })),
+      transition('inicial => final', animate(3000)),
+      transition('final => inicial', animate(2000))
+    ])
+  ]
 })
 export class LugaresHttpComponent implements OnInit {
 
@@ -17,6 +27,7 @@ export class LugaresHttpComponent implements OnInit {
   public lng:number = -74.053045;//(Google Maps)
   private lugaresHttp: any;//Llamar con http
   private lugaresHttpFormateo: any;//Llamar con http
+  state = 'inicial';
 
   constructor(
     private _lugaresHttpServices: LugaresService
@@ -41,6 +52,7 @@ export class LugaresHttpComponent implements OnInit {
         me.lugaresHttpFormateo = Object.keys(me.lugaresHttpFormateo).map(function(key) {
           return me.lugaresHttpFormateo[key];
         });
+        this.state = (this.state === 'final') ? 'inicial' : 'final';
       }, error => {
         console.error(error);
       }

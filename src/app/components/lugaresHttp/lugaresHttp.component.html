@@ -16,17 +16,23 @@
       <h2>Lugares cercanos</h2>
       <ul class="list-group">
         <ng-container *ngFor="let lugar of lugaresHttp">
-          <a routerLink="/editar/{{lugar.id}}"><li class="list-group-item" *ngIf="lugar.active">{{lugar.nombre}}</li></a>
+          <li class="list-group-item" *ngIf="lugar.active">
+            <a routerLink="/editar/{{lugar.id}}">{{lugar.nombre | lowercase}}</a>
+            <br/>
+            <small>Creado: {{lugar.id | date:'medium' | uppercase}}</small>
+            <p [innerHTML]="lugar.descripcion | linkifystr"></p>
+          </li>
         </ng-container>
       </ul>
     </div>
-    <div  class="col-md-4">
+    <div class="col-md-4" [@contenedorAnimado]="state">
       <h2>Destacados</h2>
-      <ul class="list-group">
-        <ng-container *ngFor="let lugar of lugaresHttpFormateo">
-          <li class="list-group-item" *ngIf="lugar.active">{{lugar.nombre}}</li>
-        </ng-container>
-      </ul>
+      <ng-container *ngFor="let lugar of lugaresHttpFormateo">
+        <div class="bg-warning padding" *ngIf="lugar.plan == 'pagado'">
+          <a routerLink="/crear/{{lugar.id}}"><h3>{{lugar.nombre}}</h3></a>
+          <p [innerHtml]="lugar.descripcion | linkifystr"></p>
+        </div>
+      </ng-container>
     </div>
   </div>
 </div>
