@@ -8,6 +8,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 export class LugaresService {
 
   API_ENDPOINT = 'https://platzisquare-79f58.firebaseio.com';
+  MAP_KEY = 'AIzaSyCiGsoFevMN2J-dXWtD_31AN4UkraR4Hq0';
 
   constructor(
     private afDB: AngularFireDatabase,
@@ -44,7 +45,7 @@ export class LugaresService {
 
   public obtenerGeoData(direccion) {
     // https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCiGsoFevMN2J-dXWtD_31AN4UkraR4Hq0&address=9-55+calle+72,+Bogota,Colombia
-    return this._http.get('https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCiGsoFevMN2J-dXWtD_31AN4UkraR4Hq0&address=' + direccion);
+    return this._http.get('https://maps.googleapis.com/maps/api/geocode/json?key=' + this.MAP_KEY + '&address=' + direccion);
   }
 
   public getLugar(id) {
