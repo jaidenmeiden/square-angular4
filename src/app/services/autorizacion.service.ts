@@ -50,6 +50,18 @@ export class AutorizacionService {
     })
   }
 
+  public twitterLogin() {
+    this.angularFireAuth.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider())
+      .then((response) => {
+        alert('Usuario logueado con twitter exitoso !');
+        console.log(response);
+        this.router.navigate(['lugares']);
+      }).catch((error) => {
+      alert('Un error ha ocurrido');
+      console.log(error);
+    })
+  }
+
   public isLogged() {
     return this.angularFireAuth.authState;
   }

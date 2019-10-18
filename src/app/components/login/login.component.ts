@@ -27,4 +27,8 @@ export class LoginComponent implements OnInit {
     this.autorizacionService.facebookLogin();
   }
 
+  loguearTwitter() {
+    this.autorizacionService.twitterLogin();
+  }
+
 }
